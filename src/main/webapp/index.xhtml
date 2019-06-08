@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Avaliação (Cadastro de Software)</title>
+</h:head>
+<h:body>
+
+	<p:growl id="msgs" showDetail="false" life="7000" sticky="false"
+		autoUpdate="true" />
+
+
+	<h:form id="form">
+		<h:panelGrid columns="2">
+
+
+			<h:outputLabel value="titulo: " />
+			<p:inputText required="true" id="titulo" label="Título"
+				style="margin-right: 30px;" value="#{CadastroMB.edit.titulo}" />
+
+			<h:outputLabel value="empresa: " />
+			<p:inputText required="true" id="empresa" label="Empresa:"
+				style="margin-right: 15px;" value="#{CadastroMB.edit.empresa}" />
+
+			<p:commandButton value="#{CadastroMB.edit.tipo}"
+				actionListener="#{cadastroMB.onSave()}" style="margin-right: 15px;" />
+
+			<p:selectOneMenu value="tipo:" id="titulo" label="tipo">
+
+			</p:selectOneMenu>
+			
+			<h:outputLabel value="Chave" />
+			<p:inputText required="true" id="chave" label="Chave:"
+				style="margin-right: 35px;" value="#{CadastroMB.edit.chave}" />
+
+			<h:outputLabel value="licencas" />
+			<p:inputText required="true" id="licencas" label="Licenças"
+				style="margin-right: 15px;" value="#{CadastroMB.edit.licencas}" />
+
+
+			<h:form>
+				<p:growl id="growl" showDetail="true" sticky="true" />
+
+				<p:commandButton value="Novo" action="#{growlView.saveMessage}"
+					update="@form" />
+				</p:panel>
+				
+				<p:commandButton value="Cadastrar" action="#"
+					update="@form" />
+				</p:panel>
+				
+				<p:commandButton value="Atualizar" action="#"
+					update="@form" />
+				</p:panel>
+				
+				<p:commandButton value="Excluir" action="#"
+					update="@form" />
+				</p:panel>
+			</h:form>
+
+
+		</h:panelGrid>
+	</h:form>
+
+</h:body>
+</html>
